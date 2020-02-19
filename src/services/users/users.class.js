@@ -8,7 +8,20 @@ const gravatarUrl = 'https://s.gravatar.com/avatar';
 const query = 's=60';
 
 exports.Users = class Users extends Service {
-  create (data, params) {
+
+  constructor(options, app) {
+    super(options);
+    
+    console.log('here is app ', app);
+
+    app.get('mongoClient').then(db => {
+      console.log('db here! ', db);
+      this.Model = db.collection('users');
+    })
+    .catch(err => console.log('error: ', err));
+  }
+
+  create(data, params) {
     // This is the information we want from the user signup data
     const { email, password, githubId } = data;
     // Gravatar uses MD5 hashes from an email address (all lowercase) to get the image
@@ -25,5 +38,5 @@ exports.Users = class Users extends Service {
 
     // Call the original `create` method with existing `params` and new data
     return super.create(userData, params);
-  }  
+  }
 };

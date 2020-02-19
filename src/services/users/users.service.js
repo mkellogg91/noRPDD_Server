@@ -4,6 +4,7 @@ const hooks = require('./users.hooks');
 
 module.exports = function (app) {
   const options = {
+    
     paginate: app.get('paginate')
   };
 
