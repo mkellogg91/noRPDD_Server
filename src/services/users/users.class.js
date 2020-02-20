@@ -11,14 +11,7 @@ exports.Users = class Users extends Service {
 
   constructor(options, app) {
     super(options);
-    
-    console.log('here is app ', app);
 
-    app.get('mongoClient').then(db => {
-      console.log('db here! ', db);
-      this.Model = db.collection('users');
-    })
-    .catch(err => console.log('error: ', err));
   }
 
   create(data, params) {
