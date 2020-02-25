@@ -8,6 +8,7 @@ module.exports = function (app) {
     .then(client => {
       client.db(database);
       app.service('users').Model = client.db('NRPDD').collection('users');
+      app.service('messages').Model = client.db('NRPDD').collection('messages');
       
     })
     .catch(error => {
