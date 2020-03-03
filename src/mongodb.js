@@ -9,7 +9,7 @@ module.exports = function (app) {
       client.db(database);
       app.service('users').Model = client.db('NRPDD').collection('users');
       app.service('messages').Model = client.db('NRPDD').collection('messages');
-      
+      app.service('heroes').Model = client.db('NRPDD').collection('heroes');
     })
     .catch(error => {
       console.log('promise error: ', error);
