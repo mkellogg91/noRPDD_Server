@@ -24,6 +24,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     let critNumberToBeat = 100 - critChancePercent;
     // multiply damage between 5 and (10 in this case) times, this number represents the top of the multiplyer window
     let critDamageMultiplier = critDamage * 2
+    let skills = []
 
     // add calculated attributes to an object so we can merge them with the others
     const calculatedStats = {
@@ -41,7 +42,8 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       totalStrengthDamage,
       critChancePercent,
       critNumberToBeat,
-      critDamageMultiplier
+      critDamageMultiplier,
+      skills
     }
 
     // merge previous context data with new props
